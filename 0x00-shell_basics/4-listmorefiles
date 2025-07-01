@@ -1,2 +1,6 @@
 #!/bin/bash
 ls -la
+<<<<<<< HEAD
+=======
+
+>>>>>>> e025ee3 (Add script to list all files including hidden ones)
