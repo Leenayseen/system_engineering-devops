@@ -1,2 +1,2 @@
-chmod +x 5-firstlines
-./5-firstlines
+#!/bin/bash
+head /etc/passwd
