@@ -1,3 +1,2 @@
-chmod +x 8-write_into_file
-./8-write_into_file
-cat lscwdcontent
+#!/bin/bash
+ls -la > lscwdcontent
