@@ -1,23 +1,16 @@
-#!/usr/bin/env python3
-# This script checks if a file named 'school' exists and gives information about it
+#!/usr/bin/env bash
+# This script checks properties of the file named 'school' and prints appropriate messages
 
-import os
-
-filename = "school"
-
-if os.path.exists(filename):
-    print("school file exists")
-
-    if os.path.isfile(filename):
-        if os.path.getsize(filename) == 0:
-            print("school file is empty")
-        else:
-            print("school file is not empty")
-        print("school is a regular file")
-    else:
-        if os.listdir(filename):  # just to check if not empty (e.g., if it's a directory)
-            print("school file is not empty")
-        else:
-            print("school file is empty")
-else:
-    print("school file does not exist")
+if [ -e "school" ]; then
+  if [ -d "school" ]; then
+    echo "school exists but it’s a directory"
+  elif [ -f "school" ]; then
+    if [ ! -s "school" ]; then
+      echo "school exists but empty"
+    else
+      echo "File exist and is a regular file"
+    fi
+  fi
+else
+  echo "school doesn’t exist"
+fi
