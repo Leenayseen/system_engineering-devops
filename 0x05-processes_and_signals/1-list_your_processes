@@ -1,0 +1,4 @@
+#!/bin/bash
+# This script displays a detailed list of all running processes in a tree format (showing user, PID, CPU/memory usage, and hierarchy)
+
+ps -eo user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,command --forest
