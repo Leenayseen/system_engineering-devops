@@ -1,0 +1,5 @@
+#!/bin/bash
+# This script shows only the bash processes running under the current user
+# shellcheck disable=SC2009
+
+ps aux | grep bash
