@@ -1,16 +1,19 @@
 #!/usr/bin/env bash
-# This script checks properties of the file named 'school' and prints appropriate messages
+# This script checks properties of a file named 'school' and prints information about it
 
-if [ -e "school" ]; then
-  if [ -d "school" ]; then
-    echo "school exists but it’s a directory"
-  elif [ -f "school" ]; then
-    if [ ! -s "school" ]; then
-      echo "school exists but empty"
+if [ -e "school" ]
+then
+    echo "school file exists"
+    if [ -s "school" ]
+    then
+        echo "school file is not empty"
     else
-      echo "File exist and is a regular file"
+        echo "school file is empty"
     fi
-  fi
+    if [ -f "school" ]
+    then
+        echo "school is a regular file"
+    fi
 else
-  echo "school doesn’t exist"
+    echo "school file does not exist"
 fi
