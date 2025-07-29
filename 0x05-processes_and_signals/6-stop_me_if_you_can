@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Get the PID of the script
+PID=$(pgrep -f "./4-to_infinity_and_beyond")
+
+# Check if PID was found
+if [ -n "$PID" ]; then
+  # Use `exec` to send termination signal (method other than kill)
+  echo "Terminating PID $PID"
+
+  # Send SIGTERM by echoing into /proc/[PID]/status (forces termination)
+  # This approach actually doesn't kill directly, but to simulate this without `kill`,
+  # you can use `gdb` or `bash -c 'exit'` on that PID. Here's the cleanest workaround:
+
+  # Attach and exit the process using `gdb` (if available)
+  gdb -q -n -batch -ex "attach $PID" -ex "set confirm off" -ex "kill" -ex "detach" -ex "quit" >/dev/null 2>&1
+else
+  echo "Process not found."
+fi
